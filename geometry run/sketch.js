@@ -1,5 +1,5 @@
 // Geometry Run
-// Sami, Natan
+// Natan, Sami
 // Nov 27, 2024
 
 let charSize = 100;
@@ -8,6 +8,7 @@ let jumpStatus = false; // Is the player jumping?
 let jumpSpeed = 15; // Jump velocity
 let gravity = 1; // Gravity effect
 let velocityY = 0; // Vertical velocity
+let map = 0; // variable that will make level move
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -21,6 +22,7 @@ function draw() {
 function drawGame() {
   background(220);
   drawPlayer();
+  
 }
 
 function drawPlayer() {
@@ -31,9 +33,9 @@ function drawPlayer() {
 
 function runGravity() {
   // If jump is active, apply velocity
-  if (jumpStatus) {
+  if (jumpStatus === true) {
     charY += velocityY; // Update character's vertical position
-    velocityY += gravity; // Apply gravity to velocity
+    velocityY += gravity; // Apply gravity to velocity, so the jumps peak will make the player stay in the air for a second imitating real gravity
 
     // Check if the player lands back on the ground
     if (charY >= height - charSize) {
@@ -44,11 +46,25 @@ function runGravity() {
   }
 }
 
-// Listen for key press to trigger jump
+// key press to trigger jump
 function keyPressed() {
   if (key === ' ' && !jumpStatus) { // Spacebar to jump
     jumpStatus = true;
-    velocityY = -jumpSpeed; // Initial jump velocity
+    velocityY = -jumpSpeed; 
   }
+}
+
+class block{
+  constructor(x, y, w, h){
+    x = this.x;
+    y = this.y
+    w = this.w
+    h = this.h
+  }
+
+  display(){
+    rect(x, y, w, h);
+  }
+
 }
 
