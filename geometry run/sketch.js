@@ -10,6 +10,7 @@ let gravity = 1; // Gravity effect
 let velocityY = 0; // Vertical velocity
 let map = 0; // variable that will make level move
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -20,7 +21,7 @@ function draw() {
 }
 
 function drawGame() {
-  background(220);
+  background(0, 0, 0);
   drawPlayer();
   
 }
