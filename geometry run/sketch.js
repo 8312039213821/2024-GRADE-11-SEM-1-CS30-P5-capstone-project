@@ -9,10 +9,12 @@ let jumpSpeed = 15; // Jump velocity
 let gravity = 1; // Gravity effect
 let velocityY = 0; // Vertical velocity
 let map = 0; // variable that will make level move
+let block1;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  let block1 = new block(100, 100, 100, 100);
 }
 
 function draw() {
@@ -23,6 +25,7 @@ function draw() {
 function drawGame() {
   background(0, 0, 0);
   drawPlayer();
+  block1.action();
   
 }
 
@@ -57,14 +60,18 @@ function keyPressed() {
 
 class block{
   constructor(x, y, w, h){
-    x = this.x;
-    y = this.y
-    w = this.w
-    h = this.h
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
   }
 
   display(){
-    rect(x, y, w, h);
+    rect(this.x, this.y, this.w, this.h);
+  }
+
+  action(){
+    this.display()
   }
 
 }
