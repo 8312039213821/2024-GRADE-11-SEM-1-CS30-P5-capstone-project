@@ -8,13 +8,18 @@ let jumpStatus = false; // Is the player jumping?
 let jumpSpeed = 15; // Jump velocity
 let gravity = 1; // Gravity effect
 let velocityY = 0; // Vertical velocity
-let map = 0; // variable that will make level move
+
+let map = 0, gameSpeed = 1; // variables that will make level move, map is added to x cords for things 
+//that need to move then map += mapspeed is used to move things those things because you keep addign that same nubmer that gets bigger and bigger
+let mapColor = (100, 100, 100);
 let block1;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let block1 = new block(100, 100, 100, 100);
+
+  //blocks for map
+  block1 = new block(1000, 900, 300, 100);
 }
 
 function draw() {
@@ -24,6 +29,7 @@ function draw() {
 
 function drawGame() {
   background(0, 0, 0);
+  map += gameSpeed; //moves map
   drawPlayer();
   block1.action();
   
@@ -67,7 +73,8 @@ class block{
   }
 
   display(){
-    rect(this.x, this.y, this.w, this.h);
+    fill(mapColor)
+    rect(this.x - map, this.y, this.w, this.h);
   }
 
   action(){
