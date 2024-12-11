@@ -1,6 +1,8 @@
 let map = 0, gameSpeed = 5; // variables that will make level move, map is added to x cords for things
 //that need to move then map += mapspeed is used to move things those things because you keep adding that same number that gets bigger and bigger
 
+let ground = 0; //will be used to set where the character should land
+
 let gameEnding = false;
 
   //basic block
@@ -13,7 +15,13 @@ let gameEnding = false;
     }
   
     collision(){
-      if(this.x - map <= charX + charSize){
+      if(this.x - map + this.w <= charX){
+        ground = 0
+      }
+      else if(this.x - map <= charX + charSize && charY + charSize < this.y){
+        ground = this.h
+      }
+      else if(this.x - map <= charX + charSize && charY + charSize >= this.y){
         gameEnding = true;
       }
     }

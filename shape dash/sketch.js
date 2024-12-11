@@ -10,7 +10,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   //blocks for map
-  block1 = new block(2000, 900, 300, 100);
+  block1 = new block(2000, height - 100, 300, 100);
 }
 
 
