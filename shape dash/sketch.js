@@ -1,7 +1,3 @@
-// Geometry Run
-// Natan, Sami
-// Nov 27, 2024
-
 let mapColor = (100, 100, 100);
 let block1;
 
