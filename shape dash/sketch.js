@@ -18,18 +18,24 @@ function draw() {
 
 function drawGame() {
   background(0, 0, 0);
-  if(!gameEnding){ //if character is alive
-  map += gameSpeed; //moves map
-  drawPlayer();
-  checkJump();
-  }
 
-  block1.action();
-
-  
-  if(gameEnding){ //if character dies/loses
+  if (gameState === 0) {
     
   }
+
+  if(gameState === 1){ //level 1
+  mapmover += gameSpeed; //moves map
+  drawPlayer();
+  checkJump();
+
+  block1.action();
+  }
+
+  
+  if(gameState === -1){ //if character dies/loses
+    
+  }
+
 }
 
 
