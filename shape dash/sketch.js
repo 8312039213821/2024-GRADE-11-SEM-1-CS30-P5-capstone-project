@@ -6,7 +6,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
 
   //blocks for map
-  block1 = new block(2000, height - 100, 300, 100);
+  
 }
 
 
@@ -19,16 +19,33 @@ function draw() {
 function drawGame() {
   background(0, 0, 0);
 
-  if (gameState === 0) {
-    
+  if (gameState === 0) { //menu
+    if (currentMenu === "main") {
+      drawMainMenu();
+    } else if (currentMenu === "levels") {
+      drawLevelsMenu();
+    } else if (currentMenu === "settings") {
+      drawSettingsMenu();
+    }
   }
 
-  if(gameState === 1){ //level 1
-  mapmover += gameSpeed; //moves map
-  drawPlayer();
-  checkJump();
 
-  block1.action();
+  if(gameState === 1){ //if alive
+    mapmover += gameSpeed; //moves map
+    drawPlayer();
+    checkJump();
+
+    if(gameLevel === 1){ // level 1
+      runL1();
+    }
+
+    if(gameLevel === 2){ // level 2
+      runL2();
+    }
+
+    if(gameLevel === 3){ // level 3
+      runL3();
+    }
   }
 
   
