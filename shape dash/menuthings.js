@@ -7,12 +7,12 @@ let currentMenu = "main"; // "main", "levels", "settings"
 
 // Preload images
 function preload() {
-  startButton = loadImage('start button.png');
-  settingsButton = loadImage('settings.png');
-  leftButton = loadImage('left button.png');
-  level1 = loadImage('level 1.png');
-  level2 = loadImage('level 2.png');
-  level3 = loadImage('level 3.png');
+  startButton = loadImage('assets/start button .png');
+  settingsButton = loadImage('assets/settings.png');
+  leftButton = loadImage('assets/left button .png');
+  level1 = loadImage('assets/level 1.png');
+  level2 = loadImage('assets/level 2.png');
+  level3 = loadImage('assets/level 3 .png');
 }
 
 
