@@ -16,13 +16,13 @@ let gameState = 0; //gamestate 0 is menu, -1 is dead, 1 2 3... are levels
     }
   
     collision(){
-      if(this.x - mapmover + this.w <= charX){
+      if(this.x - mapmover + this.w <= charX){ //if past player
         ground = 0
       }
-      else if(this.x - mapmover <= charX + charSize && charY + charSize < this.y){
+      else if(this.x - mapmover <= charX + charSize && charY + charSize < this.y){ //jumps on top
         ground = this.h
       }
-      else if(this.x - mapmover <= charX + charSize && charY + charSize > this.y){
+      else if(this.x - mapmover <= charX + charSize && charY + charSize > this.y){ //collides
         gameState = -1; //death
       }
     }
@@ -30,6 +30,30 @@ let gameState = 0; //gamestate 0 is menu, -1 is dead, 1 2 3... are levels
     display(){
       fill(mapColor)
       rect(this.x - mapmover, this.y, this.w, this.h);
+    }
+  
+    action(){
+      this.display()
+      this.collision()
+    }
+  }
+
+
+
+  //lets player jump mid air
+  class jumppad{
+    constructor(x, y){
+      this.x = x;
+      this.y = y;
+    }
+  
+    collision(){
+      
+    }
+  
+    display(){
+      fill(200, 200, 0)
+      circle(this.x - mapmover, this.y, 50, 50);
     }
   
     action(){
