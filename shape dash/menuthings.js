@@ -82,6 +82,9 @@ function mousePressed() {
     if (mouseX > 20 && mouseX < 70 && mouseY > 20 && mouseY < 70) {
       currentMenu = "main"; // Back to Main Menu
     }
+    else if (mouseX > 20 && mouseX < 70 && mouseY > 20 && mouseY < 70) {
+      currentMenu = "main"; // Back to Main Menu
+    }
   }
   // Settings Menu - Back Button
   else if (currentMenu === "settings") {

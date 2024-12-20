@@ -3,8 +3,8 @@ let mapmover = 0, gameSpeed = 5; // variables that will make level move, map is 
 
 let ground = 0; //will be used to set where the character should land wehter that be on a block or on the ground itself
 
-let gameLevel = 0;
-let gameState = 0; //gamestate 0 is menu, -1 is dead, 1 2 3... are levels
+let gameLevel = 1;
+let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 2 3... are levels
 
   //basic block
   class block{
