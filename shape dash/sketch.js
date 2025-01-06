@@ -4,9 +4,7 @@ let block1;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
-  //blocks for map
-  
+  levelbuild();
 }
 
 
@@ -35,16 +33,9 @@ function drawGame() {
     drawPlayer();
     checkJump();
 
-    if(gameLevel === 1){ // level 1
-      runL1();
-    }
+    for(let b of levelBlocks[gameLevel - 1]){ //draws for
+      b.action()
 
-    if(gameLevel === 2){ // level 2
-      runL2();
-    }
-
-    if(gameLevel === 3){ // level 3
-      runL3();
     }
   }
 
