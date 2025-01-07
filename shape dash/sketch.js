@@ -1,6 +1,4 @@
 let mapColor = (100, 100, 100);
-let block1;
-
 
 function setup() {
   createCanvas(windowWidth, windowHeight);

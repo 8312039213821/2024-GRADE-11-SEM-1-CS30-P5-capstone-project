@@ -40,7 +40,7 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
 
 
 
-  //lets player jump mid air
+  //lets player jump mid air if in jump pad vicinity
   class jumppad{
     constructor(x, y){
       this.x = x;
