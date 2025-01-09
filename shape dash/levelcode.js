@@ -6,12 +6,17 @@ let gameLevel4 = [];
 let gameLevel5 = [];
 
 function levelbuild(){ // all the blocks for all the levels
+    //level 1
     gameLevel1.push(new block(2000, 980, 1000, 100))
+    gameLevel1.push(new jumppad(3100, 800))
 
+
+    //-----------------------------------------------------------------------------------------------------------------------
+    //level 2
     gameLevel2.push(new block(2000, 980, 1000, 100))
 
-    gameLevel3.push(new block(2000, 980, 1000, 100))
 
+    //-----------------------------------------------------------------------------------------------------------------------
     //adding all the levels to the main level array
     levelBlocks.push(gameLevel1);
     levelBlocks.push(gameLevel2);

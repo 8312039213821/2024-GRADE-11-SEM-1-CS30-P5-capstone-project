@@ -3,7 +3,7 @@ let charY = 1080 - charSize; // Initial ground position
 let charX = 480;
 
 let jumpStatus = false; // Is the player jumping?
-let jumpSpeed = 16; // Jump velocity
+let jumpSpeed = 19; // Jump velocity
 let gravity = 1; // Gravity effect
 let velocityY = 0; // Vertical velocity
 

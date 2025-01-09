@@ -31,7 +31,7 @@ function drawGame() {
     drawPlayer();
     checkJump();
 
-    for(let b of levelBlocks[gameLevel - 1]){ //draws for
+    for(let b of levelBlocks[gameLevel - 1]){ //draws each block in the array holding all the blocks for the corresponding level
       b.action()
 
     }
