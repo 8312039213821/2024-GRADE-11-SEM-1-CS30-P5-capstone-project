@@ -45,10 +45,13 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
     constructor(x, y){
       this.x = x;
       this.y = y;
+      this.overlap = false;
     }
   
     collision(){
-      
+      if(this.x - mapmover + 50 >= charX && this.x - mapmover - 50 <= charX + charSize){ //if player is overlapping with the pad
+        this.overlap = true;
+      }
     }
   
     display(){

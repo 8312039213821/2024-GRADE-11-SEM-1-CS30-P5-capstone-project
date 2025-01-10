@@ -11,8 +11,7 @@ let velocityY = 0; // Vertical velocity
 //player graphics
 function drawPlayer() {
     rectMode(CORNER);
-    fill(50, 200, 50);
-    rect(charX, charY, charSize, charSize); // Main body
+    image(charcter1 ,charX, charY, charSize, charSize); // Main body
   }
   
   
@@ -40,4 +39,5 @@ function drawPlayer() {
       jumpStatus = true;
       velocityY = -jumpSpeed;
     }
+
   }

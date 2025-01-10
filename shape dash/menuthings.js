@@ -1,6 +1,8 @@
 // Variables for images
-let startButton, settingsButton, leftButton;
-let level1, level2, level3;
+let startButton, level1Background, leftButton;
+let level1, level2, level3; 
+let charcter1;
+let gameGround; 
 
 // Variables for menu state
 let currentMenu = "main"; // "main", "levels", "settings"
@@ -8,11 +10,14 @@ let currentMenu = "main"; // "main", "levels", "settings"
 // Preload images
 function preload() {
   startButton = loadImage('assets/start button .png');
+  level1Background = loadImage('assets/background.png');
   settingsButton = loadImage('assets/settings.png');
   leftButton = loadImage('assets/left button .png');
   level1 = loadImage('assets/level 1.png');
   level2 = loadImage('assets/level 2.png');
   level3 = loadImage('assets/level 3 .png');
+  charcter1 = loadImage('assets/charcter 1.png');
+  gameGround = loadImage('assets/gameGround.png');
 }
 
 

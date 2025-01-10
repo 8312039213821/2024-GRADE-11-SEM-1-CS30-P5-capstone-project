@@ -27,14 +27,20 @@ function drawGame() {
 
 
   if(gameState === 1){ //if alive
+    if(gameLevel === 1){
+      image(level1Background, 0, 0, 1920, 1080)
+    }
     mapmover += gameSpeed; //moves map
     drawPlayer();
     checkJump();
 
+    
+
     for(let b of levelBlocks[gameLevel - 1]){ //draws each block in the array holding all the blocks for the corresponding level
       b.action()
-
     }
+
+    
   }
 
   
