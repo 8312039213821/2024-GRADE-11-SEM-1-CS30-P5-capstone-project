@@ -5,7 +5,7 @@ let charcter1;
 let gameGround; 
 
 // Variables for menu state
-let currentMenu = "main"; // "main", "levels", "settings"
+let currentMenu = 0; // 0 is main menu 1 is settings 2.1, 2.2, and 2.3 are levels
 
 // Preload images
 function preload() {

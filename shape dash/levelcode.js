@@ -8,7 +8,7 @@ let gameLevel5 = [];
 function levelbuild(){ // all the blocks for all the levels
     //level 1
     gameLevel1.push(new block(2000, 980, 1000, 100))
-    gameLevel1.push(new jumppad(3100, 800))
+    //gameLevel1.push(new block(3100, 980, 1000, 100))
 
 
     //-----------------------------------------------------------------------------------------------------------------------

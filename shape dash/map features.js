@@ -17,10 +17,10 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
   
     collision(){
       if(this.x - mapmover + this.w <= charX){ //if past player
-        ground = 0
+        ground = 0;
       }
       else if(this.x - mapmover <= charX + charSize && charY + charSize < this.y){ //jumps on top
-        ground = this.h
+        ground = this.h;
       }
       else if(this.x - mapmover <= charX + charSize && charY + charSize > this.y){ //collides
         gameState = -1; //death
@@ -39,18 +39,21 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
   }
 
 
+  let jumpPadOverLap;
 
-  //lets player jump mid air if in jump pad vicinity
+  //lets player jump mid air if in jump pad vicinity, based of real game jump pad
   class jumppad{
     constructor(x, y){
       this.x = x;
       this.y = y;
-      this.overlap = false;
     }
   
     collision(){
       if(this.x - mapmover + 50 >= charX && this.x - mapmover - 50 <= charX + charSize){ //if player is overlapping with the pad
-        this.overlap = true;
+        jumpPadOverLap = true;
+      }
+      else{
+        jumpPadOverLap = false;
       }
     }
   

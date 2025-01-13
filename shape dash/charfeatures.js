@@ -1,9 +1,9 @@
-let charSize = 100;
+let charSize = 80;
 let charY = 1080 - charSize; // Initial ground position
 let charX = 480;
 
 let jumpStatus = false; // Is the player jumping?
-let jumpSpeed = 19; // Jump velocity
+let jumpSpeed = 18; // Jump velocity
 let gravity = 1; // Gravity effect
 let velocityY = 0; // Vertical velocity
 
@@ -18,7 +18,7 @@ function drawPlayer() {
   //player gravity/controls
 
   function runGravity() {
-    // If jump is active, apply velocity or if in mid-air
+    // If jump is active or if in mid-air, apply velocity/gravity
     if (jumpStatus === true || charY < height - ground - charSize) {
       charY += velocityY; // Update character's vertical position
       velocityY += gravity; // Apply gravity to velocity, so the jumps peak will make the player stay in the air for a second imitating real gravity
@@ -39,5 +39,12 @@ function drawPlayer() {
       jumpStatus = true;
       velocityY = -jumpSpeed;
     }
+    if (keyIsPressed && key === ' ' && jumpPadOverLap === true) { // Spacebar to jump
+      jumpStatus = false; // End jump
+      velocityY = 0; // Reset velocity
+      jumpStatus = true;
+      velocityY = -jumpSpeed;
+    }
+    
 
   }
