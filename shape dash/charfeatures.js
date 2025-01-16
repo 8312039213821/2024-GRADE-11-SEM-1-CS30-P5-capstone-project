@@ -19,19 +19,33 @@ function drawPlayer() {
 
   function runGravity() {
     // If jump is active or if in mid-air, apply velocity/gravity
-    if (jumpStatus === true || charY < height - ground - charSize) {
+    //if (jumpStatus === true || charY < height - ground - charSize) {
       charY += velocityY; // Update character's vertical position
       velocityY += gravity; // Apply gravity to velocity, so the jumps peak will make the player stay in the air for a second imitating real gravity
   
   
       // Check if the player lands back on the ground
-      if (charY >= height - ground - charSize) {
+      if (charY >= height - charSize) {
         charY = height - ground - charSize; // Reset position to ground
         jumpStatus = false; // End jump
         velocityY = 0; // Reset velocity
       }
+
+      for (let i = 0; i < levelBlocks[gameLevel - 1].length; i++) {
+          let b = levelBlocks[gameLevel - 1][i]
+          if(charX + charSize >= b.x && charX < b.x + b.w){
+            print("coliding")
+            if(charY + charSize > b.y && charY + charSize < b.y + b.h * 3){
+              charY = b.y - charSize;
+              jumpStatus = false; // End jump
+              velocityY = 0; // Reset velocity
+            }
+          }
+          
+        
+      }
     }
-  } 
+  //} 
   
   // key press to trigger jump
   function checkJump() {
