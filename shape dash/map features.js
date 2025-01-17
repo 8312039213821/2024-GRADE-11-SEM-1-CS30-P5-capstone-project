@@ -1,6 +1,8 @@
 let mapmover = 0, gameSpeed = 7; // variables that will make level move, map is added to x cords for things
 //that need to move then map += mapspeed is used to move things those things because you keep adding that same number that gets bigger and bigger
 
+let ground = 0;
+
 let gameLevel = 1;
 let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defines which level
 
