@@ -56,3 +56,19 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
       this.collision()
     }
   }
+
+  class spike{
+    constructor(x, y){
+      this.x = x;
+      this.y = y;
+    }
+  
+    display(){
+      fill(200, 200, 0)
+      circle(this.x - mapmover, this.y, 50, 50);
+    }
+  
+    action(){
+      this.display()
+    }
+  }

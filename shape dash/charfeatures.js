@@ -34,7 +34,7 @@ function drawPlayer() {
       for (let i = 0; i < levelBlocks[gameLevel - 1].length; i++) {
           let b = levelBlocks[gameLevel - 1][i]
           if(charX + charSize >= b.x && charX < b.x + b.w){
-            if(charY + charSize > b.y && charY + charSize < b.y + b.h * 0.6){ // if on top of a block
+            if(charY + charSize > b.y && charY + charSize < b.y + b.h * .4){ // if on top of a block
               charY = b.y - charSize; // keep character on top of block and dont let it fall through
               jumpStatus = false; // End jump
               velocityY = 0; // Reset velocity
