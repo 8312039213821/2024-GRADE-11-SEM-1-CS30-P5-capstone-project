@@ -32,13 +32,14 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
 
   //lets player jump mid air if in jump pad vicinity, based of real game jump pad
   class jumppad{
-    constructor(x, y){
-      this.x = x;
+    constructor(xStart, y){
+      this.xStart = xStart;
       this.y = y;
     }
   
     collision(){
-      if(this.x - mapmover + 50 >= charX && this.x - mapmover - 50 <= charX + charSize){ //if player is overlapping with the pad
+      this.x = this.xStart - mapmover;
+      if(this.x + 50 >= charX && this.x - 50 <= charX + charSize){ //if player is overlapping with the pad
         jumpPadOverLap = true;
       }
       else{
@@ -57,18 +58,35 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
     }
   }
 
-  class spike{
-    constructor(x, y){
-      this.x = x;
+
+
+  class spike{                                                                                                                                            
+    constructor(xStart, y){
+      this.xStart = xStart;
       this.y = y;
+      this.s = 80;
     }
   
     display(){
-      fill(200, 200, 0)
-      circle(this.x - mapmover, this.y, 50, 50);
+      fill(mapColor);
+      this.x = this.xStart - mapmover;
+      triangle(this.x, this.y, this.x + this.s/2, this.y - this.s, this.x + this.s, this.y);
+    }
+
+    collision(){
+      this.x = this.xStart - mapmover;
+
+      if(this.x + this.s < charX){ //if player is overlapping with the spike
+        
+      }
+      else if(this.x < charX + charSize && charY + charSize > this.y - this.s){
+        gameState = -1
+      }
+
     }
   
     action(){
-      this.display()
+      this.display();
+      this.collision();
     }
   }

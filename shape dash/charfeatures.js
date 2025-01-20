@@ -43,8 +43,6 @@ function drawPlayer() {
               gameState = -1;
             }
           }
-          
-        
       }
     }
   //} 
