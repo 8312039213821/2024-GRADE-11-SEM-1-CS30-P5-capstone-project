@@ -48,8 +48,9 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
     }
   
     display(){
+      this.x = this.xStart - mapmover;
       fill(200, 200, 0)
-      circle(this.x - mapmover, this.y, 50, 50);
+      circle(this.x, this.y, 50, 50);
     }
   
     action(){
