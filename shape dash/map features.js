@@ -74,20 +74,19 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
       triangle(this.x, this.y, this.x + this.s/2, this.y - this.s, this.x + this.s, this.y);
     }
 
-    collision(){
-      this.x = this.xStart - mapmover;
+    // collision(){
+    //   this.x = this.xStart - mapmover;
 
-      if(this.x + this.s < charX){ //if player is overlapping with the spike
+    //   if(this.x + this.s < charX){ //if player is overlapping with the spike
         
-      }
-      else if(this.x < charX + charSize && charY + charSize > this.y - this.s){
-        gameState = -1
-      }
-
-    }
+    //   }
+    //   else if(this.x < charX + charSize && charY + charSize > this.y - this.s){
+    //     gameState = -1
+    //   }
+    // }
   
     action(){
       this.display();
-      this.collision();
+      // this.collision();
     }
   }
