@@ -4,7 +4,7 @@ let mapmover = 0, gameSpeed = 7; // variables that will make level move, map is 
 let ground = 0;
 
 let gameLevel = 1;
-let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defines which level
+let gameState = 0; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defines which level
 
   //basic block
   class block{
@@ -39,18 +39,15 @@ let gameState = 1; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
   
     collision(){
       this.x = this.xStart - mapmover;
-      if(this.x + 50 >= charX && this.x - 50 <= charX + charSize){ //if player is overlapping with the pad
+      if(this.x + 25 >= charX && this.x - 25 <= charX + charSize){ //if player is overlapping with the pad
         jumpPadOverLap = true;
-      }
-      else{
-        jumpPadOverLap = false;
       }
     }
   
     display(){
       this.x = this.xStart - mapmover;
       fill(200, 200, 0)
-      circle(this.x, this.y, 50, 50);
+      circle(this.x, this.y, 50);
     }
   
     action(){

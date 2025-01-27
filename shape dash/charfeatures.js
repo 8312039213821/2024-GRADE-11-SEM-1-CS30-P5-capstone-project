@@ -55,11 +55,9 @@ function drawPlayer() {
     }
 
     if (keyIsPressed && key === ' ' && jumpPadOverLap === true) { // Spacebar to jump
-      jumpStatus = false; // End jump
-      velocityY = 0; // Reset velocity
+      print("double jump")
       jumpStatus = true;
       velocityY = -jumpSpeed;
     }
-    
 
   }

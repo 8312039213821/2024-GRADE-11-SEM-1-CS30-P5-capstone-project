@@ -18,83 +18,88 @@ function preload() {
   level3 = loadImage('assets/level 3 .png');
   charcter1 = loadImage('assets/charcter 1.png');
   gameGround = loadImage('assets/gameGround.png');
+  menuscreen = loadImage('assets/menuscreen.png');
+  level1screen = loadImage('assets/level1screen.png');
+  level2screen = loadImage('assets/level2screen.png');
+  level3screen = loadImage('assets/level3screen.png');
 }
 
 
 
 // Draw Main Menu
-function drawMainMenu() {
-  textSize(32);
-  fill(0);
-  textAlign(CENTER, CENTER);
-  text("Main Menu", width / 2, 50);
+function drawMenus() {
+  if(currentMenu === 0){
+  image(menuscreen, 0, 0, width, height)
+  }
+  if(currentMenu === 1){
+    image(level1screen, 0, 0, width, height)
+  }
+  else if(currentMenu === 1.1){
+    image(level2screen, 0, 0, width, height)
+  }
+  else if(currentMenu === 1.2){
+    image(level3screen, 0, 0, width, height)
+  }
 
-  // Draw start button
-  image(startButton, width / 2 - 100, 150, 200, 100);
-  text("Start", width / 2, 260);
-
-  // Draw settings button
-  image(settingsButton, width / 2 - 100, 300, 200, 100);
-  text("Settings", width / 2, 410);
-}
-
-// Draw Levels Menu
-function drawLevelsMenu() {
-  textSize(32);
-  fill(0);
-  textAlign(CENTER, CENTER);
-  text("Select a Level", width / 2, 50);
-
-  // Back button
-  image(leftButton, 20, 20, 50, 50);
-
-  // Level buttons
-  image(level1, width / 4 - 75, 200, 150, 150);
-  image(level2, width / 2 - 75, 200, 150, 150);
-  image(level3, (3 * width) / 4 - 75, 200, 150, 150);
-}
-
-// Draw Settings Menu
-function drawSettingsMenu() {
-  textSize(32);
-  fill(0);
-  textAlign(CENTER, CENTER);
-  text("Settings", width / 2, 50);
-
-  // Back button
-  image(leftButton, 20, 20, 50, 50);
-
-  // Placeholder text for settings
-  textSize(24);
-  text("Audio: On/Off", width / 2, height / 2);
-  text("Difficulty: Normal", width / 2, height / 2 + 50);
+  if(currentMenu < 1 && currentMenu > 0){
+    currentMenu = 1.2;
+  }
 }
 
 // Mouse Pressed Function for Interaction
 function mousePressed() {
   // Main Menu Buttons
-  if (currentMenu === "main") {
-    if (mouseX > width / 2 - 100 && mouseX < width / 2 + 100) {
-      if (mouseY > 150 && mouseY < 250) {
-        currentMenu = "levels"; // Go to Levels Menu
-      } else if (mouseY > 300 && mouseY < 400) {
-        currentMenu = "settings"; // Go to Settings Menu
-      }
+  if (currentMenu === 0) {
+    if(mouseX > 800 && mouseX < 1125 && mouseY > 340 && mouseY < 670){
+      currentMenu = 1;
     }
   }
-  // Levels Menu - Back Button
-  else if (currentMenu === "levels") {
-    if (mouseX > 20 && mouseX < 70 && mouseY > 20 && mouseY < 70) {
-      currentMenu = "main"; // Back to Main Menu
+  // Levels Menu 
+  else if (currentMenu === 1) { // first level select screen
+    if (mouseX > 27 && mouseX < 127 && mouseY > 20 && mouseY < 127) { // back to main menu
+      currentMenu = 0; 
     }
-    else if (mouseX > 20 && mouseX < 70 && mouseY > 20 && mouseY < 70) {
-      currentMenu = "main"; // Back to Main Menu
+    else if (mouseX > 1788 && mouseX < 1875 && mouseY > 427 && mouseY < 635) { // next level
+      currentMenu = 1.1; 
+    }
+    else if (mouseX > 33 && mouseX < 132 && mouseY > 427 && mouseY < 635) { // previous level
+      currentMenu = 1.2; 
+    }
+    else if (mouseX > 380 && mouseX < 1534 && mouseY > 177 && mouseY < 495) { // select this level
+      gameLevel = 1;
+      gameState = 1;
     }
   }
-  // Settings Menu - Back Button
-  else if (currentMenu === "settings") {
-    if (mouseX > 20 && mouseX < 70 && mouseY > 20 && mouseY < 70) {
-      currentMenu = "main"; // Back to Main Menu
+
+  else if (currentMenu === 1.1) { // second level select screen
+    if (mouseX > 27 && mouseX < 127 && mouseY > 20 && mouseY < 127) { // back to main menu
+      currentMenu = 0; 
+    }
+    else if (mouseX > 1788 && mouseX < 1875 && mouseY > 427 && mouseY < 635) { // next level
+      currentMenu = 1.2; 
+    }
+    else if (mouseX > 33 && mouseX < 132 && mouseY > 427 && mouseY < 635) { // previous level
+      currentMenu = 1; 
+    }
+    else if (mouseX > 380 && mouseX < 1534 && mouseY > 177 && mouseY < 495) { // select this level
+      gameLevel = 2;
+      currentMenu = 0; 
+    }
+  }
+
+  else if (currentMenu === 1.2) { // third level select screen
+    if (mouseX > 27 && mouseX < 127 && mouseY > 20 && mouseY < 127) { // back to main menu
+      currentMenu = 0; 
+    }
+    else if (mouseX > 1788 && mouseX < 1875 && mouseY > 427 && mouseY < 635) { // next level
+      currentMenu = 1; 
+    }
+    else if (mouseX > 33 && mouseX < 132 && mouseY > 427 && mouseY < 635) { // previous level
+      currentMenu = 1.1; 
+    }
+    else if (mouseX > 380 && mouseX < 1534 && mouseY > 177 && mouseY < 495) { // select this level
+      gameLevel = 3;
+      currentMenu = 0; 
     }
   }
 }
