@@ -6,6 +6,7 @@ let mapColor = (100, 100, 100);
 function setup() {
   createCanvas(windowWidth, windowHeight);
   levelbuild();
+  noStroke();
 }
 
 
@@ -29,7 +30,7 @@ function drawGame() {
   else if(gameState === 1){ //if alive
     if(gameLevel === 1){
       image(level1Background, 0, 0, 1920, 1080)
-      if(mapmover > 100){
+      if(mapmover > 20200){
         gameState = 10;
       }
     }

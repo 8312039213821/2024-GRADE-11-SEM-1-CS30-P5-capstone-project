@@ -1,4 +1,4 @@
-let mapmover = 0, gameSpeed = 7; // variables that will make level move, map is added to x cords for things
+let mapmover = 0, gameSpeed = 11; // variables that will make level move, map is added to x cords for things
 //that need to move then map += mapspeed is used to move things those things because you keep adding that same number that gets bigger and bigger
 
 let ground = 0;
@@ -39,7 +39,7 @@ let gameState = 0; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
   
     collision(){
       this.x = this.xStart - mapmover;
-      if(this.x + 25 >= charX && this.x - 25 <= charX + charSize){ //if player is overlapping with the pad
+      if(this.x + 25 >= charX && this.x - 25 <= charX + charSize && charY < this.y + 25 && charY + charSize > this.y - 25){ //if player is overlapping with the pad
         jumpPadOverLap = true;
       }
     }
@@ -71,19 +71,21 @@ let gameState = 0; //gamestate 0 is menu, -1 is dead, 1 is level, gamelevel defi
       triangle(this.x, this.y, this.x + this.s/2, this.y - this.s, this.x + this.s, this.y);
     }
 
-    // collision(){
-    //   this.x = this.xStart - mapmover;
+    collision(){
+      this.x = this.xStart - mapmover;
 
-    //   if(this.x + this.s < charX){ //if player is overlapping with the spike
-        
-    //   }
-    //   else if(this.x < charX + charSize && charY + charSize > this.y - this.s){
-    //     gameState = -1
-    //   }
-    // }
+      if(this.x + this.s * 0.75 > charX && this.x < charX + charSize && charY + charSize > this.y - this.s * .4){ //if player is overlapping with the spikes wider hitbox
+        gameState = -1; //death
+      }
+
+      if(this.x + this.s * 0.6 > charX && this.x + this.s * 0.3 < charX + charSize && charY + charSize > this.y - this.s){ //if player is overlapping with the spikes taller hitbox
+        gameState = -1; //death
+      }
+
+    }
   
     action(){
       this.display();
-      // this.collision();
+      this.collision();
     }
   }
